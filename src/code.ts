@@ -1,32 +1,31 @@
 figma.showUI(__html__, {
   width: 400,
-  height: 300,
+  height: 800,
 });
 
 figma.ui.onmessage = (msg: { type: string; truncate: boolean }) => {
   if (msg.type === "get-aspect-ratio") {
-    figma.notify(`${msg.truncate}`);
     const selectionLength = figma.currentPage.selection.length;
 
     if (selectionLength === 0) {
       figma.notify("No object selected");
     } else {
+      const aspectRatiosArray: { name: string; aspectRatio: string }[] = [];
       for (const i of figma.currentPage.selection) {
         const selectedObj = i;
         const aspectRatio = selectedObj.width / selectedObj.height;
-
-        // figma.notify(`Before: ${aspectRatio}`);
-
         let aspectRatioString = aspectRatio.toString();
         if (msg.truncate) {
           aspectRatioString = aspectRatio.toFixed(0);
-          // figma.notify(`After: ${aspectRatioString}`);
         }
-        figma.notify(
-          `Aspect ratio of ${selectedObj.name} : ${aspectRatioString}`
-        );
+        aspectRatiosArray.push({
+          name: selectedObj.name,
+          aspectRatio: aspectRatioString,
+        });
       }
+      figma.ui.postMessage({ type: "success", data: aspectRatiosArray });
     }
+  } else if (msg.type === "cancel") {
+    figma.closePlugin();
   }
-  figma.closePlugin();
 };
