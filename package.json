@@ -1,7 +1,7 @@
 {
   "name": "aspectmatic",
   "version": "1.0.0",
-  "description": "The ultimate Figma plugin for developers, automating aspect ratio calculations.",
+  "description": "The Figma plugin that helps developers with aspect ratio calculations.",
   "main": "code.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
