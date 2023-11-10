@@ -19,7 +19,9 @@ figma.ui.onmessage = (msg) => {
                     aspectRatioString = aspectRatio.toFixed(0);
                 }
                 aspectRatiosArray.push({
-                    name: selectedObj.name,
+                    name: selectedObj.name.length > 12
+                        ? selectedObj.name.substring(0, 12) + "..."
+                        : selectedObj.name,
                     aspectRatio: aspectRatioString,
                 });
             }
