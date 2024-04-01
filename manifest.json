@@ -1,13 +1,19 @@
 {
-  "name": "AspectMatic",
-  "id": "1297912439687792545",
   "api": "1.0.0",
-  "main": "dist/code.js",
-  "capabilities": ["inspect"],
-  "enableProposedApi": false,
-  "editorType": ["figma", "dev"],
-  "ui": "ui.html",
+  "editorType": [
+    "figma",
+    "dev"
+  ],
+  "id": "1297912439687792545",
+  "name": "AspectMatic",
+  "main": "build/main.js",
+  "ui": "build/ui.js",
+  "capabilities": [
+    "inspect"
+  ],
   "networkAccess": {
-    "allowedDomains": ["none"]
+    "allowedDomains": [
+      "none"
+    ]
   }
 }
