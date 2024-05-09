@@ -42,11 +42,10 @@ function Plugin() {
   const [ratioForm, setRatioForm] = useState(ratioForms[0].title);
 
   return (
-    <Stack space="large">
-      {/* <p class="text-bold text-4xl text-center">AspectMatic</p> */}
-      <p class="text-center my-2 !text-[#4f46e5]">Click on a Node</p>
-      <div class="my-6 px-4">
-        <p class="mb-4">Separator</p>
+    <div class="px-4">
+      <p class="my-2 font-semibold text-lg">Click on a Node</p>
+      <div class="my-6">
+        <p class="mb-4 font-bold">Separator</p>
         <RadioGroupUI
           title="Separator"
           values={separatorForms}
@@ -55,8 +54,8 @@ function Plugin() {
           variant="block"
         />
       </div>
-      <div class="my-6 px-4">
-        <p class="mb-4">Ratio Form</p>
+      <div class="my-6">
+        <p class="mb-4 font-bold">Aspect Ratio</p>
         <RadioGroupUI
           title="Ratios"
           values={ratioForms}
@@ -64,7 +63,7 @@ function Plugin() {
           setValueState={setRatioForm}
         />
       </div>
-    </Stack>
+    </div>
   );
 }
 
