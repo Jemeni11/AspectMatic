@@ -2,6 +2,12 @@
 
 The Figma plugin that helps developers with aspect ratio calculations.
 
+\\ AspectMatic main colour = blue-violet-600
+
+1. Ratio Form: Division, in this case, 40 / 20.
+2. Reduced Ratio Form: This is reduced fraction, in this case, 2:1.
+3. Decimal Form: This is the ratio of the width to the height expressed as a decimal number, in this case, 2.0.
+
 ---
 
 ## Preact Tailwind CSS Starter Development guide
@@ -18,7 +24,7 @@ _This plugin is built with [Create Figma Plugin](https://yuanqing.github.io/crea
 To build the plugin:
 
 ```
-$ npm run build
+$ pnpm build
 ```
 
 This will generate a [`manifest.json`](https://figma.com/plugin-docs/manifest/) file and a `build/` directory containing the JavaScript bundle(s) for the plugin.
@@ -26,7 +32,7 @@ This will generate a [`manifest.json`](https://figma.com/plugin-docs/manifest/) 
 To watch for code changes and rebuild the plugin automatically:
 
 ```
-$ npm run watch
+$ pnpm watch
 ```
 
 ### Install the plugin
