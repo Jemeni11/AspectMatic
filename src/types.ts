@@ -5,4 +5,4 @@ export type OptionsObject = {
 
 export type Separator = "Colon" | "Slash";
 
-export type RatioForm = "Ratio Form" | "Reduced Ratio Form" | "Decimal Form";
+export type RatioForm = "Ratio" | "Reduced Ratio" | "Decimal";
