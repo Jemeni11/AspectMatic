@@ -2,13 +2,9 @@ import { render, Text } from "@create-figma-plugin/ui";
 import { Fragment, h, JSX } from "preact";
 import { useState } from "preact/hooks";
 import getReducedRatio from "./helpers/getReducedRatio";
-import RadioGroupUI from "./components/RadioGroup";
+import RadioGroup from "./components/RadioGroup";
 import "!./output.css";
 import type { OptionsObject } from "./types";
-
-// Ratio Form: Division, in this case, 40 / 20.
-// Reduced Ratio Form: This is reduced fraction, in this case, 2:1.
-// Decimal Form: This is the ratio of the width to the height expressed as a decimal number, in this case, 2.0.
 
 const separatorForms: OptionsObject[] = [
   {
@@ -49,7 +45,7 @@ function Plugin() {
         <Text className="mb-4 font-bold text-black dark:text-white">
           Separator
         </Text>
-        <RadioGroupUI
+        <RadioGroup
           title="Separator"
           values={separatorForms}
           valueState={separator}
@@ -60,7 +56,7 @@ function Plugin() {
         <Text className="mb-4 font-bold text-black dark:text-white">
           Ratio Form
         </Text>
-        <RadioGroupUI
+        <RadioGroup
           title="Ratios"
           values={ratioForms}
           valueState={ratioForm}
