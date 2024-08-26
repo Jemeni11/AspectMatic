@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --blue-violet-50: #efeeff;
+  --blue-violet-100: #e2e0ff;
+  --blue-violet-200: #cac7fe;
+  --blue-violet-300: #aaa5fc;
+  --blue-violet-400: #8881f8;
+  --blue-violet-500: #6b63f1;
+  --blue-violet-600: #4f46e5;
+  --blue-violet-700: #4038ca;
+  --blue-violet-800: #3730a3;
+  --blue-violet-900: #332e81;
+  --blue-violet-950: #1e1b4b;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -20,12 +34,28 @@
     "Helvetica Neue",
     sans-serif;
   font-size: 1rem;
-  --figma-color-text: #4f46e5;
+  --figma-color-text: white;
 }
 
 p,
 span {
   @apply text-black dark:text-white;
+}
+
+.radio-group-label {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
 }
 
 .container {
