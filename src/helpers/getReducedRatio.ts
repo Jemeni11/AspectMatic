@@ -6,7 +6,7 @@
  */
 export default function getReducedRatio(
   a: number,
-  b: number
+  b: number,
 ): [number, number] {
   // Handle negative numbers
   a = Math.abs(a);
