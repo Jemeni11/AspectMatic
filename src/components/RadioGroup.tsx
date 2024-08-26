@@ -27,6 +27,7 @@ export default function RadioGroup({
       {values.map((value) => {
         const isChecked = valueState === value.title;
         const inputId = `${title}_${value.title}`;
+        const textColor = isChecked ? "text-white" : "text-gray-900";
 
         return (
           <div key={value.title} className="cursor-pointer">
@@ -37,20 +38,15 @@ export default function RadioGroup({
               id={inputId}
               className="sr-only"
               checked={isChecked}
-              onChange={() => handleChange(value.title)}
+              onInput={() => handleChange(value.title)}
             />
             <label
               htmlFor={inputId}
-              className={`radio-group-label ${isChecked ? "bg-blue-violet-600" : "bg-white"}`}
+              className={`radio-group-label ${isChecked ? "bg-black dark:bg-blue-violet-600" : "border border-solid border-black dark:border-none dark:bg-white"}`}
             >
-              <Text className={isChecked ? "text-white" : "text-gray-700"}>
-                {value.title}
-              </Text>
+              <Text className={textColor}>{value.title}</Text>
 
-              <Text
-                numeric
-                className={`${isChecked ? "text-white" : "text-gray-900"} mt-1 text-xs`}
-              >
+              <Text numeric className={`${textColor} text-xs`}>
                 {value.subtitle}
               </Text>
             </label>
