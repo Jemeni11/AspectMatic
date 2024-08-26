@@ -1,14 +1,13 @@
-import { render, Stack } from "@create-figma-plugin/ui";
+import { render, Text } from "@create-figma-plugin/ui";
 import { Fragment, h, JSX } from "preact";
 import { useState } from "preact/hooks";
 import getReducedRatio from "./helpers/getReducedRatio";
-import RadioGroupUI from "./components/RadioGroupUI";
+import RadioGroupUI from "./components/RadioGroup";
 import "!./output.css";
-import style from "./input.css";
 import type { OptionsObject } from "./types";
 
 // Ratio Form: Division, in this case, 40 / 20.
-// Reduced Ratio Form: This is  reduced fraction, in this case, 2:1.
+// Reduced Ratio Form: This is reduced fraction, in this case, 2:1.
 // Decimal Form: This is the ratio of the width to the height expressed as a decimal number, in this case, 2.0.
 
 const separatorForms: OptionsObject[] = [
@@ -24,15 +23,15 @@ const separatorForms: OptionsObject[] = [
 
 const ratioForms: OptionsObject[] = [
   {
-    title: "Ratio Form",
+    title: "Regular Ratio",
     subtitle: "300:9, 300/9",
   },
   {
-    title: "Reduced Ratio Form",
+    title: "Reduced Ratio",
     subtitle: "100:3, 100/3",
   },
   {
-    title: "Decimal Form",
+    title: "Decimal",
     subtitle: "33.3",
   },
 ];
@@ -43,19 +42,24 @@ function Plugin() {
 
   return (
     <div class="px-4">
-      <p class="my-2 font-semibold text-lg">Click on a Node</p>
+      <Text className="my-2 text-lg font-semibold text-black dark:text-white">
+        Click on a Node
+      </Text>
       <div class="my-6">
-        <p class="mb-4 font-bold">Separator</p>
+        <Text className="mb-4 font-bold text-black dark:text-white">
+          Separator
+        </Text>
         <RadioGroupUI
           title="Separator"
           values={separatorForms}
           valueState={separator}
           setValueState={setSeparator}
-          variant="block"
         />
       </div>
       <div class="my-6">
-        <p class="mb-4 font-bold">Aspect Ratio</p>
+        <Text className="mb-4 font-bold text-black dark:text-white">
+          Ratio Form
+        </Text>
         <RadioGroupUI
           title="Ratios"
           values={ratioForms}
