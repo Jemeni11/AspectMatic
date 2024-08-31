@@ -1,6 +1,6 @@
 import type { AspectRatio } from "../types";
 
-export default function handleAspectRatioCalculation() {
+export default function getAspectRatio() {
   const selection = figma.currentPage.selection;
 
   if (selection.length === 0) {
