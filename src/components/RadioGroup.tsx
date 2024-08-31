@@ -1,23 +1,22 @@
 import { Text } from "@create-figma-plugin/ui";
-import { h, JSX } from "preact";
+import { h } from "preact";
 import { Dispatch, StateUpdater, useCallback } from "preact/hooks";
-import type { OptionsObject } from "../types";
 
-interface RadioGroupProps {
+interface RadioGroupProps<T> {
   title: string;
-  values: OptionsObject[];
-  valueState: string;
-  setValueState: Dispatch<StateUpdater<string>>;
+  values: {title: T; subtitle: string}[];
+  valueState: T;
+  setValueState: Dispatch<StateUpdater<T>>;
 }
 
-export default function RadioGroup({
+export default function RadioGroup<T extends string>({
   values,
   valueState,
   setValueState,
   title,
-}: RadioGroupProps) {
+}: RadioGroupProps<T>) {
   const handleChange = useCallback(
-    (title: string) => setValueState(title),
+    (text: T) => setValueState(text),
     [setValueState],
   );
 
