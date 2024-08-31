@@ -42,20 +42,29 @@ span {
   @apply text-black dark:text-white;
 }
 
+.calculate-button {
+  background-color: var(--blue-violet-600);
+  font-size: 1.125rem;
+}
+
 .radio-group-label {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  border-radius: 0.75rem;
-  padding: 1rem;
   font-size: 0.875rem;
-  line-height: 1.25rem;
-  font-weight: 500;
   transition:
     background-color 0.2s ease-in-out,
     color 0.2s ease-in-out;
+}
+
+.calculate-button,
+.radio-group-label {
+  width: 100%;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  line-height: 1.25rem;
+  font-weight: 500;
 }
 
 .container {
