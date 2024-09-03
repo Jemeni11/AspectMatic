@@ -14,10 +14,8 @@ export default function getAspectRatio() {
           selectedObj.name.length > 12
             ? selectedObj.name.substring(0, 12) + "..."
             : selectedObj.name,
-        aspectRatio: {
-          width: selectedObj.width,
-          height: selectedObj.height,
-        },
+        width: selectedObj.width,
+        height: selectedObj.height,
       });
     }
     figma.ui.postMessage({ type: "SUCCESS", data: aspectRatiosArray });
