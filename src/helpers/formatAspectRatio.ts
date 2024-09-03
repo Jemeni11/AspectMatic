@@ -5,7 +5,8 @@ import type { RatioForm, Separator } from "../types";
  * Formats an aspect ratio based on user-selected options.
  * @param width - The width of the aspect ratio
  * @param height - The height of the aspect ratio
- * @param options - The formatting options selected by the user
+ * @param ratioForm - "Regular Ratio" | "Reduced Ratio" | "Decimal"
+ * @param separatorForm - "Colon" | "Slash"
  * @returns A string representation of the formatted aspect ratio
  */
 export default function formatAspectRatio(
