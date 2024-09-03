@@ -4,7 +4,7 @@ import { Dispatch, StateUpdater, useCallback } from "preact/hooks";
 
 interface RadioGroupProps<T> {
   title: string;
-  values: {title: T; subtitle: string}[];
+  values: { title: T; subtitle: string }[];
   valueState: T;
   setValueState: Dispatch<StateUpdater<T>>;
 }
@@ -29,7 +29,7 @@ export default function RadioGroup<T extends string>({
         const textColor = isChecked ? "text-white" : "text-gray-900";
 
         return (
-          <div key={value.title} className="cursor-pointer">
+          <div key={value.title} className="radio-option">
             <input
               type="radio"
               name={title}
