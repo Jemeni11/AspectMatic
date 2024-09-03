@@ -14,7 +14,7 @@ export const AspectRatioSVG = () => (
   </svg>
 );
 
-export const CancelSVG = () => (
+export const CloseSVG = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
