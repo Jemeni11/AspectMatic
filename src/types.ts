@@ -19,8 +19,6 @@ export type RatioForm = "Regular Ratio" | "Reduced Ratio" | "Decimal";
 
 export type AspectRatio = {
   nodeName: string;
-  aspectRatio: {
-    width: number;
-    height: number;
-  };
+  width: number;
+  height: number;
 };
