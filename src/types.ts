@@ -1,13 +1,3 @@
-export type SeparatorOption = {
-  title: Separator;
-  subtitle: string;
-};
-
-export type RatioFormOption = {
-  title: RatioForm;
-  subtitle: string;
-};
-
 export type OptionsObject<T extends Separator | RatioForm> = {
   title: T;
   subtitle: string;
