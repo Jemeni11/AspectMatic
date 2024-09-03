@@ -44,7 +44,26 @@ span {
 
 .calculate-button,
 .cancel-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
   font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.calculate-button *,
+.cancel-button * {
+  cursor: inherit;
+  color: white;
+}
+
+.radio-option {
+  cursor: pointer;
+}
+
+.radio-option * {
+  cursor: inherit;
 }
 
 .calculate-button {
@@ -67,7 +86,8 @@ span {
 }
 
 .calculate-button,
-.radio-group-label {
+.radio-group-label,
+.cancel-button {
   width: 100%;
   border-radius: 0.75rem;
   padding: 1rem;
