@@ -12,3 +12,17 @@ export type AspectRatio = {
   width: number;
   height: number;
 };
+
+export type AllAspectRatioFormats = {
+  "Regular Ratio": {
+    Colon: string;
+    Slash: string;
+  };
+  "Reduced Ratio": {
+    Colon: string;
+    Slash: string;
+  };
+  Decimal: string;
+};
+
+export type AspectRatioWithFormats = AspectRatio & AllAspectRatioFormats;
