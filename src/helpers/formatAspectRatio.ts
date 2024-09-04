@@ -1,5 +1,5 @@
 import { getReducedRatio, decimalFormConverter } from "./";
-import type { RatioForm, Separator } from "../types";
+import type { RatioForm, Separator, AllAspectRatioFormats } from "../types";
 
 /**
  * Formats an aspect ratio based on user-selected options.
@@ -31,4 +31,30 @@ export default function formatAspectRatio(
     default:
       throw new Error("Invalid ratio form selected");
   }
+}
+
+export function allAspectRatioFormats(
+  width: number,
+  height: number,
+): AllAspectRatioFormats {
+  const regularRatioColon = `${width}:${height}`;
+  const regularRatioSlash = `${width}/${height}`;
+
+  const [reducedWidth, reducedHeight] = getReducedRatio(width, height);
+  const reducedRatioColon = `${reducedWidth}:${reducedHeight}`;
+  const reducedRatioSlash = `${reducedWidth}/${reducedHeight}`;
+
+  const Decimal = decimalFormConverter(width, height).toString();
+
+  return {
+    "Regular Ratio": {
+      Colon: regularRatioColon,
+      Slash: regularRatioSlash,
+    },
+    "Reduced Ratio": {
+      Colon: reducedRatioColon,
+      Slash: reducedRatioSlash,
+    },
+    Decimal,
+  };
 }
