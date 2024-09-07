@@ -1,15 +1,16 @@
 import { Text } from "@create-figma-plugin/ui";
 import { h } from "preact";
 import { Dispatch, StateUpdater, useCallback } from "preact/hooks";
+import type { OptionsObject, RatioForm, Separator } from "../types";
 
-interface RadioGroupProps<T> {
+interface RadioGroupProps<T extends RatioForm | Separator> {
   title: string;
-  values: { title: T; subtitle: string }[];
+  values: OptionsObject<T>[];
   valueState: T;
   setValueState: Dispatch<StateUpdater<T>>;
 }
 
-export default function RadioGroup<T extends string>({
+export default function RadioGroup<T extends RatioForm | Separator>({
   values,
   valueState,
   setValueState,
