@@ -1,3 +1,7 @@
-export default function decimalFormConverter(a: number, b: number): number {
-  return +(a / b).toFixed(10);
+export default function decimalFormConverter(
+  a: number,
+  b: number,
+  shouldRound: boolean = false,
+): number {
+  return +(a / b).toFixed(shouldRound ? 0 : 10);
 }
