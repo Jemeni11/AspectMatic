@@ -5,7 +5,11 @@ export type OptionsObject<T extends Separator | RatioForm> = {
 
 export type Separator = "Colon" | "Slash";
 
-export type RatioForm = "Regular Ratio" | "Reduced Ratio" | "Decimal";
+export type RatioForm =
+  | "Regular Ratio"
+  | "Reduced Ratio"
+  | "Decimal"
+  | "Rounded Decimal";
 
 export type AspectRatio = {
   nodeName: string;
@@ -23,6 +27,7 @@ export type AllAspectRatioFormats = {
     Slash: string;
   };
   Decimal: string;
+  "Rounded Decimal": string;
 };
 
 export type AspectRatioWithFormats = AspectRatio & AllAspectRatioFormats;
