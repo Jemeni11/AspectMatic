@@ -1,5 +1,5 @@
 import type { AspectRatioWithFormats } from "../types";
-import { allAspectRatioFormats } from "./formatAspectRatio";
+import formatAspectRatio from "./formatAspectRatio";
 
 export default function getAspectRatio() {
   const selection = figma.currentPage.selection;
@@ -12,7 +12,7 @@ export default function getAspectRatio() {
     for (const selectedObj of selection) {
       const width = selectedObj.width;
       const height = selectedObj.height;
-      const allARs = allAspectRatioFormats(width, height);
+      const allARs = formatAspectRatio(width, height);
 
       const aspectRatioObject: AspectRatioWithFormats = {
         nodeName:
