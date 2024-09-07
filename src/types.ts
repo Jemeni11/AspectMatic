@@ -31,3 +31,8 @@ export type AllAspectRatioFormats = {
 };
 
 export type AspectRatioWithFormats = AspectRatio & AllAspectRatioFormats;
+
+export type HistoryAspectRatio = {
+  nodeName: string;
+  aspectRatio: string;
+};
