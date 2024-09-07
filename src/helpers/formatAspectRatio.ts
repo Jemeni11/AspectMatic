@@ -28,6 +28,9 @@ export default function formatAspectRatio(
     case "Decimal":
       return decimalFormConverter(width, height).toString();
 
+    case "Rounded Decimal":
+      return decimalFormConverter(width, height, true).toString();
+
     default:
       throw new Error("Invalid ratio form selected");
   }
@@ -45,6 +48,7 @@ export function allAspectRatioFormats(
   const reducedRatioSlash = `${reducedWidth}/${reducedHeight}`;
 
   const Decimal = decimalFormConverter(width, height).toString();
+  const roundedDecimal = decimalFormConverter(width, height, true).toString();
 
   return {
     "Regular Ratio": {
@@ -56,5 +60,6 @@ export function allAspectRatioFormats(
       Slash: reducedRatioSlash,
     },
     Decimal,
+    "Rounded Decimal": roundedDecimal,
   };
 }
