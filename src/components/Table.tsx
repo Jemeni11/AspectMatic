@@ -15,32 +15,32 @@ interface TableHeaderProps {
 const TableHeader = ({ headers }: TableHeaderProps) => (
   <thead className="text-left">
     <tr>
-      {headers.map((header, index) => (
+      {headers.map((header) => (
         <th
-          key={index}
+          key={header}
           className="whitespace-nowrap p-2 font-medium text-black dark:text-white"
         >
           {header}
         </th>
       ))}
-      <th className="p-2"></th>
+      <th className="p-2" aria-hidden="true"></th>
     </tr>
   </thead>
 );
 
 const Table = ({ headers, data }: TableProps) => {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-auto">
       <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900">
         <TableHeader headers={headers} />
         <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
-          {data.map((aspectRatioObject) => {
+          {data.map((aspectRatioObject, index) => {
             function copyToClipboardHandler() {
               copyToClipboard(aspectRatioObject.aspectRatio);
             }
 
             return (
-              <tr>
+              <tr key={`${aspectRatioObject.nodeName}-${index}`}>
                 <td className="whitespace-nowrap p-2 font-medium text-black dark:text-white">
                   {aspectRatioObject.nodeName}
                 </td>
@@ -51,6 +51,7 @@ const Table = ({ headers, data }: TableProps) => {
                   <button
                     onClick={copyToClipboardHandler}
                     className="text-blue-violet-600 hover:text-blue-violet-700"
+                    aria-label={`Copy ${aspectRatioObject.aspectRatio}`}
                   >
                     <CopySVG />
                   </button>
