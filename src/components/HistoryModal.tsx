@@ -1,5 +1,5 @@
 import { Button, Modal, Text } from "@create-figma-plugin/ui";
-import { Fragment, h, JSX } from "preact";
+import { Fragment, h } from "preact";
 import { useState } from "preact/hooks";
 import Table from "./Table";
 import type { HistoryAspectRatio } from "../types";
@@ -15,29 +15,14 @@ export default function HistoryModal({
 }: HistoryModalProps) {
   const [open, setOpen] = useState<boolean>(false);
 
-  function handleOpenButtonClick(
-    _event: JSX.TargetedMouseEvent<HTMLButtonElement>,
-  ) {
-    setOpen(true);
-  }
-
-  function handleCloseButtonClick(
-    _event:
-      | JSX.TargetedMouseEvent<HTMLButtonElement>
-      | JSX.TargetedMouseEvent<HTMLDivElement>,
-  ) {
-    setOpen(false);
-  }
-
-  function handleClearButtonClick(
-    _event: JSX.TargetedMouseEvent<HTMLButtonElement>,
-  ) {
-    clearHistory();
-  }
+  const handleOpenButtonClick = () => setOpen(true);
+  const handleCloseButtonClick = () => setOpen(false);
 
   return (
     <Fragment>
-      <Button onClick={handleOpenButtonClick}>Open</Button>
+      <Button onClick={handleOpenButtonClick} aria-label="Open history modal">
+        Open
+      </Button>
       <Modal
         onCloseButtonClick={handleCloseButtonClick}
         onOverlayClick={handleCloseButtonClick}
@@ -45,7 +30,7 @@ export default function HistoryModal({
         title="History"
         position="bottom"
       >
-        <div className="h-[250px] w-[350px] pl-3 pr-1">
+        <div className="h-[250px] w-full max-w-[350px] pl-3 pr-1">
           {history.length === 0 ? (
             <Text
               align="center"
@@ -56,7 +41,7 @@ export default function HistoryModal({
           ) : (
             <div>
               <Table headers={["Node Name", "Aspect Ratio"]} data={history} />
-              <button onClick={handleClearButtonClick} className="clear-button">
+              <button onClick={clearHistory} className="clear-button">
                 Clear History
               </button>
             </div>
