@@ -16,7 +16,9 @@
   --blue-violet-950: #1e1b4b;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -85,9 +87,17 @@ span {
     color 0.2s ease-in-out;
 }
 
+.clear-button {
+  background-color: #cc2020;
+  width: 80%;
+  margin: 2rem auto;
+  line-height: 1rem !important;
+}
+
 .calculate-button,
-.radio-group-label,
-.close-button {
+.close-button,
+.clear-button,
+.radio-group-label {
   width: 100%;
   border-radius: 0.75rem;
   padding: 1rem;
@@ -95,80 +105,14 @@ span {
   font-weight: 500;
 }
 
-.container {
-  text-align: center;
-  margin-inline: auto;
-  padding-inline: 1rem;
-  display: flex;
-  flex-direction: column;
-  row-gap: 1.5rem;
-}
-
-.title {
-  font-size: 3rem;
-  font-weight: 700;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  color: #4f46e5;
-}
-
-.subtitle {
-  font-size: 1.5rem;
-  font-weight: 500;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  color: #4f46e5;
-}
-
-.truncateBox {
-  display: flex;
-  align-items: center;
-  width: 100%;
-  gap: 1rem;
-}
-
-.truncateBox > label {
-  width: 90%;
-  text-align: left;
-}
-
-.buttonContainer {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  width: 100%;
-}
-
 button {
   width: 100%;
   outline: none;
-  border-radius: 0.5rem;
-  border: none;
-  padding: 0.75rem 1.25rem;
-  font-size: 1.25rem;
-  color: white;
   cursor: pointer;
 }
 
-.buttonContainer > button {
-  flex: 1;
-}
-
-.runButton {
-  background-color: #4f46e5;
-}
-
-.closeButton {
-  background-color: red;
-}
-
 .clearButton {
-  background-color: rgb(204, 32, 32);
-}
-
-#errors {
-  color: red;
-  font-weight: 600;
+  background-color: #cc2020;
 }
 
 table {
