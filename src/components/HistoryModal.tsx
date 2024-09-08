@@ -1,4 +1,4 @@
-import { Button, Modal, Text } from "@create-figma-plugin/ui";
+import { Modal, Text } from "@create-figma-plugin/ui";
 import { Fragment, h } from "preact";
 import { useState } from "preact/hooks";
 import Table from "./Table";
@@ -20,9 +20,16 @@ export default function HistoryModal({
 
   return (
     <Fragment>
-      <Button onClick={handleOpenButtonClick} aria-label="Open history modal">
-        Open
-      </Button>
+      <button
+        type="button"
+        className="radio-group-label mb-4 bg-black dark:bg-blue-violet-600"
+        onClick={handleOpenButtonClick}
+        aria-label="Open history"
+      >
+        <span class="w-full cursor-pointer text-center text-white">
+          Open History
+        </span>
+      </button>
       <Modal
         onCloseButtonClick={handleCloseButtonClick}
         onOverlayClick={handleCloseButtonClick}
@@ -39,7 +46,7 @@ export default function HistoryModal({
               No history
             </Text>
           ) : (
-            <div>
+            <div class="py-4">
               <Table headers={["Node Name", "Aspect Ratio"]} data={history} />
               <button onClick={clearHistory} className="clear-button">
                 Clear History
