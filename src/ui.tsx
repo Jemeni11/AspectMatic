@@ -1,11 +1,11 @@
 import { h } from "preact";
-import { useState } from "preact/hooks";
+import { useState, useCallback, useEffect } from "preact/hooks";
 import { emit } from "@create-figma-plugin/utilities";
 import { render, Text } from "@create-figma-plugin/ui";
 import { RadioGroup, HistoryModal, Table } from "./components/";
 import { copyToClipboard, convertToHistoryAspectRatios } from "./helpers/";
 import { useAspectRatioHistory } from "./hooks";
-import { AspectRatioSVG, CloseSVG } from "./svg-icons";
+import { AspectRatioSVG, CloseSVG, CopySVG } from "./svg-icons";
 import type {
   AspectRatioWithFormats,
   Separator,
@@ -64,34 +64,45 @@ function Plugin() {
     emit("CLOSE_UI");
   }
 
-  function copyToClipboardHandler(index: number) {
-    const formattedAspectRatio =
-      ratioForm === "Decimal" || ratioForm === "Rounded Decimal"
-        ? aspectRatios[index][ratioForm]
-        : aspectRatios[index][ratioForm][separator];
-    copyToClipboard(formattedAspectRatio);
-    figma.notify("Aspect ratio copied to clipboard");
-  }
+  const copyToClipboardHandler = useCallback(
+    (index: number) => {
+      const formattedAspectRatio =
+        ratioForm === "Decimal" || ratioForm === "Rounded Decimal"
+          ? aspectRatios[index][ratioForm]
+          : aspectRatios[index][ratioForm][separator];
+      copyToClipboard(formattedAspectRatio);
+      figma.notify("Aspect ratio copied to clipboard");
+    },
+    [aspectRatios, ratioForm, separator],
+  );
 
-  onmessage = (event) => {
-    const message: { type: string; data: AspectRatioWithFormats[] } =
-      event.data.pluginMessage;
+  const handleMessage = useCallback(
+    (event: MessageEvent) => {
+      const message: { type: string; data: AspectRatioWithFormats[] } =
+        event.data.pluginMessage;
 
-    if (message.type === "SUCCESS") {
-      setAspectRatios(message.data);
+      if (message.type === "SUCCESS") {
+        setAspectRatios(message.data);
 
-      for (const i of message.data) {
-        const newRatio = {
-          nodeName: i.nodeName,
-          aspectRatio:
-            ratioForm === "Decimal" || ratioForm === "Rounded Decimal"
-              ? i[ratioForm]
-              : i[ratioForm][separator],
-        };
-        addRatio(newRatio);
+        message.data.forEach((i) => {
+          const newRatio = {
+            nodeName: i.nodeName,
+            aspectRatio:
+              ratioForm === "Decimal" || ratioForm === "Rounded Decimal"
+                ? i[ratioForm]
+                : i[ratioForm][separator],
+          };
+          addRatio(newRatio);
+        });
       }
-    }
-  };
+    },
+    [ratioForm, separator, addRatio],
+  );
+
+  useEffect(() => {
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, [handleMessage]);
 
   return (
     <div class="px-4">
@@ -140,20 +151,37 @@ function Plugin() {
           </div>
         ) : aspectRatios.length === 1 ? (
           <div class="mb-2 grid w-full grid-cols-1 gap-4">
+            <div className="flow-root rounded-lg border border-gray-100 py-3 shadow-sm">
+              <dl className="-my-3 divide-y divide-gray-100 text-sm">
+                <div className="grid grid-cols-2 gap-4 p-3">
+                  <dt className="font-black text-gray-900 dark:text-white">
+                    Node Name
+                  </dt>
+                  <dd className="break-words text-gray-700 dark:text-white">
+                    Aspect Ratio
+                  </dd>
+                </div>
+
+                <div className="grid grid-cols-2 gap-4 p-3">
+                  <dt className="font-black text-gray-900 dark:text-white">
+                    {aspectRatios[0].nodeName}
+                  </dt>
+                  <dd className="break-words text-gray-700 dark:text-white">
+                    {ratioForm === "Decimal" || ratioForm === "Rounded Decimal"
+                      ? aspectRatios[0][ratioForm]
+                      : aspectRatios[0][ratioForm][separator]}
+                  </dd>
+                </div>
+              </dl>
+            </div>
             <div
               onClick={() => copyToClipboardHandler(0)}
-              className="radio-group-label bg-black dark:bg-blue-violet-600"
+              className="radio-group-label cursor-pointer bg-black dark:bg-blue-violet-600"
             >
-              <Text className="text-white">{aspectRatios[0].nodeName}</Text>
-              <Text numeric className="text-xs text-white">
-                {ratioForm === "Decimal" || ratioForm === "Rounded Decimal"
-                  ? aspectRatios[0][ratioForm]
-                  : aspectRatios[0][ratioForm][separator]}
-              </Text>
+              <span className="w-full cursor-pointer text-center text-white">
+                Click to copy
+              </span>
             </div>
-            <span className="w-full text-center text-black dark:text-white">
-              Click to copy
-            </span>
           </div>
         ) : (
           <div>
@@ -169,7 +197,7 @@ function Plugin() {
               onClick={() => setAspectRatios([])}
               className="clear-button"
             >
-              Clear History
+              Clear Table
             </button>
           </div>
         )}
