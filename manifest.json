@@ -16,5 +16,6 @@
     "allowedDomains": [
       "none"
     ]
-  }
+  },
+  "documentAccess": "dynamic-page"
 }
