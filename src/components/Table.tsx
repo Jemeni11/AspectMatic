@@ -15,15 +15,15 @@ interface TableHeaderProps {
 const TableHeader = ({ headers }: TableHeaderProps) => (
   <thead className="text-left">
     <tr class="dark:bg-white">
-      {headers.map((header) => (
+      {headers.map((header, index) => (
         <th
           key={header}
-          className="whitespace-nowrap p-2 font-medium text-black"
+          colspan={index === headers.length - 1 ? 2 : 1}
+          className="whitespace-nowrap p-2 text-center font-medium text-black"
         >
           {header}
         </th>
       ))}
-      <th className="p-2" aria-hidden="true"></th>
     </tr>
   </thead>
 );
@@ -41,15 +41,25 @@ const Table = ({ headers, data }: TableProps) => {
 
             return (
               <tr key={`${aspectRatioObject.nodeName}-${index}`}>
-                <td className="whitespace-nowrap p-2 font-medium text-black">
+                <td className="whitespace-nowrap p-2 text-center font-medium text-black">
                   {aspectRatioObject.nodeName}
                 </td>
-                <td className="whitespace-nowrap p-2 text-gray-700">
+                <td className="whitespace-nowrap break-words p-2 text-right text-gray-700">
                   {aspectRatioObject.aspectRatio}
                 </td>
-                <td className="whitespace-nowrap p-2">
+                <td
+                  className="whitespace-nowrap p-2"
+                  style={{
+                    width: "2rem",
+                    height: "2rem",
+                  }}
+                >
                   <button
                     onClick={copyToClipboardHandler}
+                    style={{
+                      width: "2rem",
+                      height: "2rem",
+                    }}
                     className="text-blue-violet-600 hover:text-blue-violet-700"
                     aria-label={`Copy ${aspectRatioObject.aspectRatio}`}
                   >
