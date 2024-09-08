@@ -14,11 +14,11 @@ interface TableHeaderProps {
 
 const TableHeader = ({ headers }: TableHeaderProps) => (
   <thead className="text-left">
-    <tr>
+    <tr class="dark:bg-white">
       {headers.map((header) => (
         <th
           key={header}
-          className="whitespace-nowrap p-2 font-medium text-black dark:text-white"
+          className="whitespace-nowrap p-2 font-medium text-black"
         >
           {header}
         </th>
@@ -31,9 +31,9 @@ const TableHeader = ({ headers }: TableHeaderProps) => (
 const Table = ({ headers, data }: TableProps) => {
   return (
     <div className="overflow-auto">
-      <table className="min-w-full divide-y-2 divide-gray-200 bg-white text-sm dark:divide-gray-700 dark:bg-gray-900">
+      <table className="min-w-full divide-y-2 text-sm dark:divide-gray-700 dark:bg-gray-900">
         <TableHeader headers={headers} />
-        <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
+        <tbody className="divide-y divide-gray-200 dark:divide-gray-700 dark:bg-white">
           {data.map((aspectRatioObject, index) => {
             function copyToClipboardHandler() {
               copyToClipboard(aspectRatioObject.aspectRatio);
@@ -41,10 +41,10 @@ const Table = ({ headers, data }: TableProps) => {
 
             return (
               <tr key={`${aspectRatioObject.nodeName}-${index}`}>
-                <td className="whitespace-nowrap p-2 font-medium text-black dark:text-white">
+                <td className="whitespace-nowrap p-2 font-medium text-black">
                   {aspectRatioObject.nodeName}
                 </td>
-                <td className="whitespace-nowrap p-2 text-gray-700 dark:text-gray-200">
+                <td className="whitespace-nowrap p-2 text-gray-700">
                   {aspectRatioObject.aspectRatio}
                 </td>
                 <td className="whitespace-nowrap p-2">
