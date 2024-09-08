@@ -2,11 +2,10 @@
 
 The Figma plugin that helps developers with aspect ratio calculations.
 
-\\ AspectMatic main colour = blue-violet-600
-
-1. Ratio Form: Division, in this case, 40 / 20.
-2. Reduced Ratio Form: This is reduced fraction, in this case, 2:1.
-3. Decimal Form: This is the ratio of the width to the height expressed as a decimal number, in this case, 2.0.
+1. Ratio Form: Division, in this case, 300 / 9.
+2. Reduced Ratio Form: This is reduced fraction, in this case, 100 / 3.
+3. Decimal Form: This is the ratio of the width to the height expressed as a decimal number, in this case, 33.33.
+4. Rounded Decimal Form: This is the ratio of the width to the height expressed as a decimal number, rounded to the nearest whole number, in this case, 33.
 
 ---
 
