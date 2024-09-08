@@ -37,7 +37,10 @@ export default function HistoryModal({
         title="History"
         position="bottom"
       >
-        <div className="h-[250px] w-full max-w-[350px] pl-3 pr-1">
+        <div
+          style={{ maxHeight: "350px" }}
+          className="h-full w-full max-w-[350px] overflow-auto pl-3 pr-1"
+        >
           {history.length === 0 ? (
             <Text
               align="center"
