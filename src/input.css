@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --blue-violet-50: #efeeff;
+  --blue-violet-100: #e2e0ff;
+  --blue-violet-200: #cac7fe;
+  --blue-violet-300: #aaa5fc;
+  --blue-violet-400: #8881f8;
+  --blue-violet-500: #6b63f1;
+  --blue-violet-600: #4f46e5;
+  --blue-violet-700: #4038ca;
+  --blue-violet-800: #3730a3;
+  --blue-violet-900: #332e81;
+  --blue-violet-950: #1e1b4b;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Open Sans",
+    "Helvetica Neue",
+    sans-serif;
+  font-size: 1rem;
+  --figma-color-text: white;
+}
+
+p,
+span {
+  @apply text-black dark:text-white;
+}
+
+.calculate-button,
+.close-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+
+.calculate-button *,
+.close-button * {
+  cursor: inherit;
+  color: white;
+}
+
+.radio-option {
+  cursor: pointer;
+}
+
+.radio-option * {
+  cursor: inherit;
+}
+
+.calculate-button {
+  background-color: var(--blue-violet-600);
+}
+
+.close-button {
+  background-color: red;
+}
+
+.radio-group-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.875rem;
+  transition:
+    background-color 0.2s ease-in-out,
+    color 0.2s ease-in-out;
+}
+
+.clear-button {
+  background-color: #cc2020;
+  width: 80%;
+  margin: 1.5rem auto;
+  line-height: 1rem !important;
+}
+
+.calculate-button,
+.close-button,
+.clear-button,
+.radio-group-label {
+  width: 100%;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  line-height: 1.25rem;
+  font-weight: 500;
+}
+
+button {
+  width: 100%;
+  outline: none;
+  cursor: pointer;
+}
+
+.clearButton {
+  background-color: #cc2020;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-color: #e5e7eb;
+  border-radius: 0.75rem;
+  border-width: 1px;
+  border-style: solid;
+  background-color: white;
+}
+
+table tr:first-child th:first-child {
+  border-top-left-radius: 0.75rem;
+}
+
+table tr:first-child th:last-child {
+  border-top-right-radius: 0.75rem;
+}
+
+table tr:last-child td:first-child {
+  border-bottom-left-radius: 0.75rem;
+}
+
+table tr:last-child td:last-child {
+  border-bottom-right-radius: 0.75rem;
+}
