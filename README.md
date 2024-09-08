@@ -1,3 +1,5 @@
+![Cover](https://s3-alpha-sig.figma.com/plugins/1297912439687792545/74364/e2aa274d789da8debe910d2f6c0573aa863a30c4-cover?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VSqtdKd1cjQK-XGz7bYV~ZHRg7FC5Ak9-rGpIKAkL-VT-HfLrAkCXPfRVnA2Lci79D-moAJSh6seGfYC1wffGYp7ZLVOIKxiGyUiIU0LXhUhape0Bcvs8NVUOET9S3luaI~UcdVNqa-MgNwTKyWrrV-kvNO201mGoCJ9iPX4FOE649G9Gs7TACZw837Oy1EEzPF0NT7lwm2FTmq5bjQDhCfy9Aq2YHU72Y8SuZCy35E06ImApBDQ98VUqqCYXuFYDR4ZxvwWS3T3L30wSjkqbZAuUkqoYo07xPEHjksSQuf9lXzGpGyy1Hnv9wt~S2QJXQ5bmhFUJWivaEpP5-Bahg__)
+
 # AspectMatic
 
 The Figma plugin that helps developers with aspect ratio calculations.
@@ -92,8 +94,6 @@ For any contributions or issues, check out the [AspectMatic repository](https://
 - LinkedIn: [Emmanuel Jemeni](https://www.linkedin.com/in/emmanuel-jemeni)
 - GitHub: [@Jemeni11](https://www.github.com/Jemeni11)
 - Twitter/X: [@Jemeni11\_](https://twitter.com/Jemeni11_)
-
-Made with Preact, Typescript and TailwindCSS.
 
 ## License
 
