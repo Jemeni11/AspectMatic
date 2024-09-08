@@ -1,4 +1,4 @@
-![Cover](https://s3-alpha-sig.figma.com/plugins/1297912439687792545/74364/e2aa274d789da8debe910d2f6c0573aa863a30c4-cover?Expires=1726444800&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=VSqtdKd1cjQK-XGz7bYV~ZHRg7FC5Ak9-rGpIKAkL-VT-HfLrAkCXPfRVnA2Lci79D-moAJSh6seGfYC1wffGYp7ZLVOIKxiGyUiIU0LXhUhape0Bcvs8NVUOET9S3luaI~UcdVNqa-MgNwTKyWrrV-kvNO201mGoCJ9iPX4FOE649G9Gs7TACZw837Oy1EEzPF0NT7lwm2FTmq5bjQDhCfy9Aq2YHU72Y8SuZCy35E06ImApBDQ98VUqqCYXuFYDR4ZxvwWS3T3L30wSjkqbZAuUkqoYo07xPEHjksSQuf9lXzGpGyy1Hnv9wt~S2QJXQ5bmhFUJWivaEpP5-Bahg__)
+![Cover](https://github.com/user-attachments/assets/b38c3525-13d9-4d29-be8b-bfc2f7b141ce)
 
 # AspectMatic
 
