@@ -157,13 +157,13 @@ function Plugin() {
                   <dt className="font-black text-gray-900 dark:text-white">
                     Node Name
                   </dt>
-                  <dd className="break-words text-gray-700 dark:text-white">
+                  <dd className="font-black text-gray-900 dark:text-white">
                     Aspect Ratio
                   </dd>
                 </div>
 
                 <div className="grid grid-cols-2 gap-4 p-3">
-                  <dt className="font-black text-gray-900 dark:text-white">
+                  <dt className="break-words text-gray-700 dark:text-white">
                     {aspectRatios[0].nodeName}
                   </dt>
                   <dd className="break-words text-gray-700 dark:text-white">
